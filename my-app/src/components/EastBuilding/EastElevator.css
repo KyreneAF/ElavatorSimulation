@@ -1,0 +1,10 @@
+.e-elevator-main-cont {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.bttn-main-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
