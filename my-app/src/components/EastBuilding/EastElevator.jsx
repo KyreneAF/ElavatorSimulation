@@ -16,27 +16,28 @@ function EastElevator() {
     setFloorBttns(resArr);
   }, []);
 
-  const handleElevatorQue = (index) => {
-    const newQue = [...floorQue, index];
+  //This function removes the floors from the que
+  const handleElevatorMotion = (newQue) => {
+    setTimeout(() => {
+      if (newQue && newQue.length > 0) {
+        const nextQue = [...newQue.slice(1)];
+        setFloorQue(nextQue);
+      }
+    }, 3000);
+  };
+  //This Func adds the floor to the elevator que
+  const handleElevatorQue = (num) => {
+    const newQue = [...floorQue, num];
     setFloorQue(newQue);
     handleElevatorMotion(newQue);
   };
 
-  const handleElevatorMotion = (newQue) => {
-    setTimeout(() => {
-      const newDeQue = [...floorQue].shift();
-      if (newDeQue.length > 0) {
-        const nextQue = newQue.slice(1);
-        setFloorQue(nextQue);
-      }
-    }, 1000);
-  };
-
-  const handleClick = (index) => {
+  //THis Func handles when the floor button is clicked
+  const handleClick = (index, num) => {
     const newButtonStates = [...buttonStates]; //spreads buttonStates into an array variable
     newButtonStates[index] = "success"; //changes the buttonState at the clicked index to success which turns it green
     setButtonStates(newButtonStates); //updates buttonStates to the newButtonStates array
-    handleElevatorQue(index);
+    handleElevatorQue(num);
     handleElevatorMotion();
   };
 
@@ -45,15 +46,17 @@ function EastElevator() {
     <div className="e-elevator-main-cont">
       <div className="bttn-main-cont">
         {floorBttns.map((num, index) => (
-          <div key={index}>
+          <div className="single-btn-cont" key={index}>
+            <div className={`btn btn-${buttonStates[index]}`}></div>
             <button
               style={{ border: "1px solid black", borderRadius: "50%" }}
               type="button"
               className={`btn btn-${buttonStates[index]}`}
-              onClick={() => handleClick(index)}
+              onClick={() => handleClick(index, num)}
             >
               {num}
             </button>
+            <div className={`btn btn-${buttonStates[index]}`}></div>
           </div>
         ))}
       </div>
