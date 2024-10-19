@@ -1,0 +1,9 @@
+.elevator1-main-cont.activeEle {
+  background-color: green;
+  color: green;
+}
+
+.elevator1-main-cont.idle {
+  color: white;
+  background-color: white;
+}

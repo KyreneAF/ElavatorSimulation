@@ -8,3 +8,9 @@
   flex-direction: column;
   gap: 5px;
 }
+
+.single-btn-cont {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
