@@ -2,11 +2,17 @@
   display: flex;
   justify-content: center;
   padding: 10px;
+  height: 100%;
 }
 .bttn-main-cont {
   display: flex;
-  flex-direction: column;
   gap: 5px;
+  height: 53%;
+  width: 200px;
+  flex-wrap: wrap;
+  align-self: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .single-btn-cont {

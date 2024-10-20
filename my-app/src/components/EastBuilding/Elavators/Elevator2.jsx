@@ -46,7 +46,7 @@ function Elevator2({ props }) {
 
   return (
     <div className={`elevator1-main-cont`}>
-      <div>E2 is at floor {currFloor}</div>
+      <h3>E2 is at floor {currFloor}</h3>
     </div>
   );
 }

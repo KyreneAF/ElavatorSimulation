@@ -40,12 +40,11 @@ function Elevator1({ props }) {
       const moveInterval = setInterval(moveElevator, 1000); // Move elevator every second
       return () => clearInterval(moveInterval); // Clean up interval
     }
-  }, [lowFloorQue, currFloor]);
+  }, [lowFloorQue, currFloor, setButtonStates, setLowFloorQue, buttonStates]);
 
-  if (!sortedFloorQue.length) return;
   return (
-    <div className={`elevator1-main-cont ${className}`}>
-      <div>E1</div>
+    <div className={`elevator1-main-cont`}>
+      <h3>E1 is at floor {currFloor}</h3>
     </div>
   );
 }

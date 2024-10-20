@@ -45,35 +45,38 @@ function EastElevator() {
   console.log("TopQue", topFloorQue, "LOWQue", lowFloorQue);
   return (
     <div className="e-elevator-main-cont">
+      <Elevator2
+        props={{
+          topFloorQue,
+          buttonStates,
+          setButtonStates,
+          setTopFloorQue,
+        }}
+      />
       <div className="bttn-main-cont">
         {floorBttns.map((num, index) => (
           <div className="single-btn-cont" key={index}>
-            <Elevator1
-              props={{
-                lowFloorQue,
-                buttonStates,
-                setButtonStates,
-                setLowFloorQue,
-              }}
-            />
             <button
-              style={{ border: "1px solid black", borderRadius: "50%" }}
+              style={{
+                border: "1px solid black",
+                borderRadius: "50%",
+              }}
               className={`btn btn-${buttonStates[index]}`}
               onClick={() => handleClick(index, num)}
             >
               {num}
             </button>
-            <Elevator2
-              props={{
-                topFloorQue,
-                buttonStates,
-                setButtonStates,
-                setTopFloorQue,
-              }}
-            />
           </div>
         ))}
       </div>
+      <Elevator1
+        props={{
+          lowFloorQue,
+          buttonStates,
+          setButtonStates,
+          setLowFloorQue,
+        }}
+      />
     </div>
   );
 }
